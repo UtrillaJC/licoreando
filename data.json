@@ -113,7 +113,7 @@
     "precio": 15.65,
     "origen": "Escocia",
     "cantidad": "1.70 kg",
-    "graduacion": "",
+    "graduacion": 40.0,
     "urlProducto": "https://marianomadrueno.es/producto/100-pipers-litro/",
     "urlImagen": "https://i2.wp.com/marianomadrueno.es/wp-content/uploads/2013/06/100-pepers-scotch-whisky.png?fit=305%2C510&ssl=1",
     "enStock": true
