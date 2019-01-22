@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Preferencias</title>
+</head>
+<body>
+<header>
+{% include 'header.html' %}
+
+<h1>Preferencia</h1>
+<p><a class="error">{{error}}</a></p>
+<form id='form' method='post'>
+{% csrf_token %}
+{{form.as_p}}
+<p><input type='submit' value='Guardar'/></p>
+</form>
+</body>
+</html>
