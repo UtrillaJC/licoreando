@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<data-sources>
-	<data-source id="sqlite_jdbc-1685715513a-571b459dc757ed9b" provider="generic" driver="sqlite_jdbc" name="SQLite - db.sqlite3" save-password="true" show-system-objects="true" read-only="false">
-		<connection server="" database="/home/viento/aii/aii/Licoreando/db.sqlite3" url="jdbc:sqlite:/home/viento/aii/aii/Licoreando/db.sqlite3" type="dev"/>
-	</data-source>
-	<filters/>
-</data-sources>
