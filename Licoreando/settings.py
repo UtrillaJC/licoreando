@@ -110,4 +110,4 @@ if 'HEROKU' in os.environ:
         import django_heroku
         django_heroku.settings(locals())
     except ImportError:
-print("local_settings_heroku.py not found")
+        print("local_settings_heroku.py not found")
