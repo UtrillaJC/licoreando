@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>Recomendaciones</title>
+</head>
+<body>
+<header>
+{% include 'header.html' %}
+<div class="titulo">
+<h3>Para obtener una lista de recomendaciones, actualice su formulario</h3>
+<h3>En caso de actualizar su formulario, puede tardar en realizar una recomendación efectiva</h3>
+{% if not licores %}
+  <h3>No hay recomendaciones disponibles, intente rellenar el formulario de preferencias</h3>
+{%endif%}
+</div>
+{% if licores %}
+<table style="width:50%" align="center" >
+  <tr>
+    <th>Título</th>
+	  <th>Imagen</th>
+    <th>Código</th> 
+    <th>Descripción</th>
+    <th>Precio</th>
+    <th>Origen</th> 
+    <th>Cantidad/Peso</th>
+    <th>Graduación</th>
+    <th>Categoría</th>
+    <th>Enlace</th>
+    <th>Stock</th>
+  </tr>
+
+{% for licor in licores %}
+  <tr>
+    <td>{{licor.titulo}}</td>
+    <td><img src="{{licor.urlImagen}}" width="100px"/></td> 
+    <td>
+    {% if not licor.codigoReferencia == "" %}
+    	{{licor.codigoReferencia}}</td>
+    {%endif%}
+    {% if licor.codigoReferencia == "" %}
+    	---
+    {%endif%}
+    </td> 
+    <td><div class="tooltip">
+    {%if not licor.descripcion == "" %}
+        <a class="description">Descripción</a><span class="tooltiptext">{{licor.descripcion}}</span></div></td>
+    {%endif%}
+    {%if licor.descripcion == "" %}
+        <a>---</a></td>
+    {%endif%}
+    <td>
+    {% if not licor.precio == "" %}
+    	{{licor.precio}}€</td>
+    {%endif%}
+    {% if licor.precio == "" %}
+    	Desconocido
+    {%endif%}
+    </td>
+    <td>
+    {% if not licor.origen == "" %}
+    	{{licor.origen}}
+    {%endif%}
+    {% if licor.origen == "" or licor.origen == "Desconocido" %}
+    	No disponible
+    {%endif%}
+    </td> 
+    <td>
+    {% if not licor.cantidad == "" %}
+    	{{licor.cantidad}}</td>
+    {%endif%}
+    {% if licor.cantidad == "" %}
+    	No disponible
+    {%endif%}
+    </td>
+    <td>
+    {% if not licor.graduacion == "" %}
+    	{{licor.graduacion}}º</td>
+    {%endif%}
+    {% if licor.graduacion == "" %}
+    	No disponible
+    {%endif%}
+    </td>
+    <td>
+    {% for cate in licor.categoria_set.all %}
+    <p>{{cate.nombre}}</p>
+    {% endfor %}
+    </td>
+    <td><a href="{{licor.urlProducto}}" target="_blank">Enlace</a></td>
+    {% if licor.enStock == True %}
+    	<td><a class="green">En stock</a></td>
+    {%endif%}
+    {% if licor.enStock == False %}
+    	<td><a class="red">Sin stock</a></td>
+    {%endif%}
+ </tr>
+{% endfor %}
+</table>
+{%endif%}
+</body>
+</html>
