@@ -1,0 +1,154 @@
+<meta charset="UTF-8">
+<style>
+body {
+ /*background-image: url("https://www.publicdomainpictures.net/pictures/210000/velka/natural-wood-grain-background-14903911355WD.jpg");*/
+ font-size: 13pt;
+ font-family: sans-serif;
+}
+ul.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+.center {
+  margin: auto;
+  width: 20%;
+  padding: 10px;
+  background-color: #FAD887;
+}
+li.menu_option {
+  float: left;
+}
+
+li a.option {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a.option:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: red;
+}
+.error{
+color: red;
+}
+.preferencias_left{
+display: block;
+display: inline-block;
+float:left;
+margin:5px
+}
+.preferencias_center{
+display: block;
+display: inline-block;
+float:left;
+margin:5px
+}
+.preferencias_right{
+display: block;
+display: inline-block;
+float:left;
+margin:5px
+}
+.search{
+ background-color: #FAD887;
+ display: inline-block;
+ float:left;
+ margin:5px
+ 
+}
+.image_search{
+float:right;
+}
+table, td, th {
+  border: 1px solid black;
+  text-align: center;
+  word-wrap: break-word;
+  margin:5px;
+  font-size: 13pt;
+}
+.search,.center, table{
+  background-image: url("https://raw.githubusercontent.com/Iriabow/aii/master/Licoreando/static/tabla.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.description{
+    color: blue;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 600px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.green{
+color:green;
+}
+.red{
+color:red;
+}
+.banner{
+  width: 100%;
+}
+</style>
+<header>
+<div class="banner"><img src="https://raw.githubusercontent.com/Iriabow/aii/master/Licoreando/static/search.jpg"/></div>
+
+<nav>
+	<ul class="menu">
+		<li class="menu_option"><a class="option" href="/">Home</a></li>
+		<li class="menu_option"><a class="option" href="/licor/search">Licores</a></li>
+		{% if not user.is_authenticated %}
+		<li class="menu_option"><a class="option" href="/user/register">Registro</a></li>
+		<li class="menu_option"><a class="option" href="/user/login">Login</a></li>
+		{%endif%}
+		{% if user.is_authenticated %}
+		<li class="menu_option"><a class="option" href="/user/forms">Formulario</a></li>
+		<li class="menu_option"><a class="option" href="/user/recomendation">Recomendación</a></li>
+		<li class="menu_option"><a class="option" href="/user/logout">Logout</a></li>
+		{%endif%}
+	</ul>
+</nav>
+</header>
